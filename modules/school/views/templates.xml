@@ -1,0 +1,123 @@
+<odoo>
+    <!-- Subject Form View -->
+    <record id="view_school_subject_form" model="ir.ui.view">
+        <field name="name">school.subject.form</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <form string="Subject">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="credits"/>
+                        <field name="max_students"/>
+                        <field name="active"/>
+                        <field name="student_ids"/>
+                        <field name="teacher_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Subject Tree View -->
+    <record id="view_school_subject_tree" model="ir.ui.view">
+        <field name="name">school.subject.tree</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <tree string="Subject">
+                <field name="name"/>
+                <field name="credits"/>
+                <field name="max_students"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Student Form View -->
+    <record id="view_school_student_form" model="ir.ui.view">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="birth_date"/>
+                        <field name="age"/>
+                        <field name="final_exam_grade"/>
+                        <field name="subject_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Student Tree View -->
+    <record id="view_school_student_tree" model="ir.ui.view">
+        <field name="name">school.student.tree</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <tree string="Student">
+                <field name="name"/>
+                <field name="birth_date"/>
+                <field name="age"/>
+                <field name="final_exam_grade"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Teacher Form View -->
+    <record id="view_school_teacher_form" model="ir.ui.view">
+        <field name="name">school.teacher.form</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <form string="Teacher">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="profile"/>
+                        <field name="subject_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Teacher Tree View -->
+    <record id="view_school_teacher_tree" model="ir.ui.view">
+        <field name="name">school.teacher.tree</field>
+        <field name="model">school.teacher</field>
+        <field name="arch" type="xml">
+            <tree string="Teacher">
+                <field name="name"/>
+                <field name="profile"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions -->
+    <record id="action_school_subject" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_school_student" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_school_teacher" model="ir.actions.act_window">
+        <field name="name">Teachers</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_school_root" name="School"/>
+
+    <menuitem id="menu_school_subject" name="Subjects" parent="menu_school_root" action="action_school_subject"/>
+    <menuitem id="menu_school_student" name="Students" parent="menu_school_root" action="action_school_student"/>
+    <menuitem id="menu_school_teacher" name="Teachers" parent="menu_school_root" action="action_school_teacher"/>
+</odoo>
